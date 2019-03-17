@@ -1,12 +1,22 @@
-var locations = [
-    {lat: 22.529834,lng: 75.923720},
-    {lat: 22.750870,lng: 75.895474},
-    {lat: 22.740870,lng: 75.885474},
-    {lat: 22.740870,lng: 75.905474},
-    {lat: 22.760870,lng: 75.885474},
-    {lat: 22.713527,lng: 75.855961},
-    {lat: 22.760870,lng: 75.905474}
-    ];
+var mysql=require("mysql");
+
+var con=mysql.createConnection({
+	host:'localhost',
+	user:'root',
+	password:'1Mysql_!',
+	database:'mydb'
+});
+
+var locations;
+
+con.connect(function(err){
+	if(err) throw err;
+    console.log("Connected...!!");
+    
+    con.query("SELECT * from markers", function(err,result) {
+        locations=result;
+    });
+});
 
 function initMap() {
     var map=new google.maps.Map(document.getElementById('map'), {
