@@ -1,5 +1,5 @@
 # GROUP_F_PROJECT-13
-## Digital Music Map of Indore
+### Digital Music Map of Indore
 
 In this a map of Indore city will be made on which important music related locations will be marked and blogs/pictures/videos/music/etc. related to that location are to be added.
 
@@ -8,5 +8,5 @@ In this a map of Indore city will be made on which important music related locat
 -  It is built with extensibilty in mind. It can, in future include other cities.
 
 Technology Stack : 
-Front End using AngularJS and BackEnd using NodeJS.
-MySQL for Database.
+Front End using [AngularJS](https://angularjs.org/) and BackEnd using [NodeJS](https://nodejs.org/en/). 
+[MySQL](https://www.mysql.com/) for Database.
