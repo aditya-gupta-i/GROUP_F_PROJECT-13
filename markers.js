@@ -1,0 +1,1 @@
+var data=[{"name":"loc3","lat":26,"lng":76}];
