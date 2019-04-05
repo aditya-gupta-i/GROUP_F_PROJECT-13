@@ -1,7 +1,7 @@
 var model = require('./model.js');
 module.exports = {
 	usermap : function(req,res){
-		res.send(model.place())	//return the data of different places
+		model.place(res)
 	},
 	
 	blog : function(req,res){
@@ -28,7 +28,12 @@ module.exports = {
 	},
 
 	adminadd : function(req, res){
-		res.send("add data")
+		res.send("add data") // return the file that will add the blog
+	},
+
+	blogadd : function(req,res){
+		res.send('add blog')
+		// image storer
 	},
 
 	adminedit : function(req, res){
@@ -36,7 +41,7 @@ module.exports = {
 	},
 
 	admindelete : function(req, res){
-		res.send("delete data")
+		model.deleteplace(req,res);
 	},
 	
 	adminlogout : function(req,res){

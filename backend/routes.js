@@ -35,6 +35,10 @@ app.get('/admin/add/',auth ,function(req, res){
 	controller.adminadd(req,res); // add data
 });
 
+app.get('/admin/add/blog',auth ,function(req,res){
+	controller.blogadd(req,res); // blog maker	
+});
+
 app.get('/admin/edit/',auth ,function(req,res){
 	controller.adminedit(req,res); //edit data
 });
