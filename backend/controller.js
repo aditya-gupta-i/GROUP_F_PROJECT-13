@@ -15,7 +15,16 @@ module.exports = {
 	},
 
 	adminlogin : function(req, res){
-		res.send("admin login")
+		if (req.query.username==undefined  || req.query.password==undefined) {
+    			res.send('login failed');
+  		} else if(req.query.username === "amy" && req.query.password === "amyspassword") {
+    			req.session.user = "amy";
+    			req.session.admin = true;
+  	  		res.send("login success!");
+  		}
+		else{
+			res.send("wrong credentials");
+		}
 	},
 
 	adminadd : function(req, res){
@@ -28,5 +37,11 @@ module.exports = {
 
 	admindelete : function(req, res){
 		res.send("delete data")
+	},
+	
+	adminlogout : function(req,res){
+		req.session.admin=false;
+		console.log(req.session)
+		res.send("logout success")
 	}
 }

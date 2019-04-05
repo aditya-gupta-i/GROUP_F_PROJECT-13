@@ -6,12 +6,19 @@ var connection = mysql.createConnection({
   database : 'data'
 });
 connection.connect()
-//table name location 
-//connection.query('SELECT 1 + 1 AS solution', function (err, rows, fields) {
-//  if (err) throw err
-//  console.log('The solution is: ', rows[0].solution)
-//})
 
-//connection.end()
+
+
+module.exports = {
+	place : function() {
+		var place_data;
+		connection.query('SELECT * FROM location', function (err, rows, fields) {
+			if (err) 
+		  		throw err
+			place_data = rows;		  	
+		});
+		return place_data;
+	},
+}
 
 
