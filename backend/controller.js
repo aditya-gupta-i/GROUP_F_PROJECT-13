@@ -1,11 +1,18 @@
 var model = require('./model.js');
 module.exports = {
 	usermap : function(req,res){
-		model.place(res)
+		//model.place(res)
+		var filename =  "/home/snowman/Desktop/project/GROUP_F_PROJECT-13/backend/index.html"
+		res.sendFile(filename,{dotfiles:'deny'},function(err){
+			if(err)
+				res.send('some error')
+			else
+				console.log('sent')
+		})
 	},
 	
 	blog : function(req,res){
-		var filename  = "/home/snowman/Desktop/GROUP_F_PROJECT-13/backend/blog/" + req.query.lat + "_" + req.query.lon + ".html";
+		var filename  = "/home/snowman/Desktop/project/GROUP_F_PROJECT-13/backend/blog/" + req.query.lat + "_" + req.query.lon + ".html";
 		res.sendFile(filename,{dotfiles: 'deny'},function(err){
 			if(err)
 				res.send("no such blog")
@@ -14,19 +21,42 @@ module.exports = {
 		})
 	},
 
+	admin : function(req,res){
+		var filename =  "/home/snowman/Desktop/project/GROUP_F_PROJECT-13/backend/logIn.html"
+		res.sendFile(filename,{dotfiles:'deny'},function(err){
+			if(err)
+				res.send('some error')
+			else
+				console.log('sent')
+		})
+	},
+
 	adminlogin : function(req, res){
-		if (req.query.username==undefined  || req.query.password==undefined) {
-    			res.send('login failed');
-  		} else if(req.query.username === "amy" && req.query.password === "amyspassword") {
+		if (req.body.username==undefined  || req.body.password==undefined) {
+			var filename =  "/home/snowman/Desktop/project/GROUP_F_PROJECT-13/backend/logIn.html"
+			res.sendFile(filename,{dotfiles:'deny'},function(err){
+				if(err)
+					res.send('some error')
+				else
+					console.log('sent')
+			})
+  		}
+		else if(req.body.username === "amy" && req.body.password === "amyspassword") {
     			req.session.user = "amy";
     			req.session.admin = true;
-  	  		res.send("login success!");
+			var filename =  "/home/snowman/Desktop/project/GROUP_F_PROJECT-13/backend/admin.html"
+			res.sendFile(filename,{dotfiles:'deny'},function(err){
+				if(err)
+					res.send('some error')
+				else
+					console.log('sent')
+			})
   		}
 		else{
 			res.send("wrong credentials");
 		}
 	},
-
+	
 	adminadd : function(req, res){
 		res.send("add data") // return the file that will add the blog
 	},

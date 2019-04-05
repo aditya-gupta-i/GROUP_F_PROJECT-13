@@ -1,6 +1,10 @@
 const express = require('express')
 const controller = require("./controller.js") // contain functions
+const bodyParser = require('body-parser')
 const app = express()
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
 const session = require('express-session')
 const port = 3001
 
@@ -28,7 +32,11 @@ app.get('/blog/', function(req,res){
 
 ///////  admin routing starts now //////
 app.get('/admin/', function(req, res){
-	controller.adminlogin(req,res);	// admin authentication
+	controller.admin(req,res);	// login page
+});
+
+app.post('/admin/login/',function(req,res){
+	controller.adminlogin(req,res) //admin authentication
 });
 
 app.get('/admin/add/',auth ,function(req, res){
