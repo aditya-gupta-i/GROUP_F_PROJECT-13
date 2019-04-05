@@ -7,6 +7,8 @@
         <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css">
 
+        <!-- <link rel="stylesheet" href="node_modules/bulma-modal-fx/dist/css/modal-fx.min.css"> -->
+        <link rel="stylesheet" href="https://unpkg.com/bulma-modal-fx/dist/css/modal-fx.min.css" />
         <script defer src="http://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
         
         <!-- <link rel="stylesheet" href="style/debug.css"> -->
@@ -29,7 +31,7 @@
         <nav class="navbar is-transparent has-shadow is-spaced is-dark" role="navigation" aria-label="main navigation">
             <div class="container">
                 <div class="navbar-brand">
-                    <a class="navbar-item" href="localhost:8080">
+                    <a class="navbar-item" href="http://localhost:8080">
                         <!-- <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28"> -->
                         <h1 class="title" style="color:white">MUSIC MAP</h1>
                     </a>
@@ -146,6 +148,44 @@
             </div>
         </div>
 
+        <div id="modal-marker" class="modal modal-fx-3dSlit">
+            <div class="modal-background"></div>
+            
+            <div class="modal-content is-tiny">
+                <div class="card">
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <img src="/img/25-75.jpeg" height="42px">
+                        </figure>
+                    </div>
+
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-left">
+                                <figure class="image is-48x48">
+                                    <img src="/img/profile.jpeg">
+                                </figure>
+                            </div>
+
+                            <div class="media-content">
+                                <p class="title is-4">First Last</p>
+                                <p class="subtitle is-6">@subtitle</p>
+
+                            </div>
+                        </div>
+
+                        <div class="content">
+                            qwerty uiop sdfg hjkl zxcv bnm.
+                            <a href="www.google.com">visit</a>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="modal-close"></button>
+            </div>
+            
+        </div>
+
         <script>
             document.addEventListener('DOMContentLoaded', () => {
                 var $burgers = getAll('.burger');
@@ -165,6 +205,42 @@
             function getAll(selector) {
                  return Array.prototype.slice.call(document.querySelectorAll(selector), 0);
             }
+
+            //modals
+            var rootEl = document.documentElement;
+            var $modals = getAll('.modal');
+            var $modalButtons = getAll('.modal-button');
+            var $modalCloses = getAll('.modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button');
+
+            if ($modalButtons.length > 0) {
+                $modalButtons.forEach(function ($el) {
+                    $el.addEventListener('click', function () {
+                        var target = $el.dataset.target;
+                        openModal(target);
+                    });
+                });
+            }
+
+            if ($modalCloses.length > 0) {
+                $modalCloses.forEach(function ($el) {
+                    $el.addEventListener('click', function () {
+                        closeModals();
+                    });
+                });
+            }
+
+            function openModal(target) {
+                var $target = document.getElementById(target);
+                rootEl.classList.add('is-clipped');
+                $target.classList.add('is-active');
+            }
+
+        function closeModals() {
+            rootEl.classList.remove('is-clipped');
+            $modals.forEach(function ($el) {
+                $el.classList.remove('is-active');
+            });
+        }
         </script>
 
 <script type="text/javascript" src="markers.js"></script>
@@ -172,8 +248,89 @@
     var locations=data;
     function initMap() {
         var map=new google.maps.Map(document.getElementById('map'), {
-            zoom: 12,
-            center: {lat: 22.713527, lng: 75.855961}
+            zoom: 6,
+            center: {lat: 22.713527, lng: 75.855961},
+            styles: [
+            {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
+            {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
+            {elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},
+            {
+              featureType: 'administrative.locality',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'poi',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'poi.park',
+              elementType: 'geometry',
+              stylers: [{color: '#263c3f'}]
+            },
+            {
+              featureType: 'poi.park',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#6b9a76'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'geometry',
+              stylers: [{color: '#38414e'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'geometry.stroke',
+              stylers: [{color: '#212a37'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#9ca5b3'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'geometry',
+              stylers: [{color: '#746855'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'geometry.stroke',
+              stylers: [{color: '#1f2835'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#f3d19c'}]
+            },
+            {
+              featureType: 'transit',
+              elementType: 'geometry',
+              stylers: [{color: '#2f3948'}]
+            },
+            {
+              featureType: 'transit.station',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'geometry',
+              stylers: [{color: '#17263c'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#515c6d'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'labels.text.stroke',
+              stylers: [{color: '#17263c'}]
+            }
+          ]
+
         });
 
         var markers=locations.map(function(location, i){
@@ -183,11 +340,28 @@
         });
 
         var markerCluster=new MarkerClusterer(map, markers,{imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+
+        var i;
+        
+        for(i=0;i<markers.length;i++) {
+            markers[i].addListener('click', function() {
+                var $target=document.getElementById("modal-marker");
+                $target.classList.add('is-active');
+            });
+        }
     }
 </script>
 
-<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
-<script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbyjqw1UNpkVh53y9UM9sNDleaUuIBZSM&callback=initMap"></script>  
+        <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+        <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbyjqw1UNpkVh53y9UM9sNDleaUuIBZSM&callback=initMap"></script>  
+
+
+
+<!-- <script type="text/javascript" src="https://unpkg.com/bulma-modal-fx/dist/js/modal-fx.min.js"></script> -->
+
+
+        <!-- <script type="text/javascript" src="dist/js/modal-fx.min.js"></script> -->
+
     </body>
 </html>
