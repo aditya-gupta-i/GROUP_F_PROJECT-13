@@ -1,5 +1,6 @@
 const express = require('express')
 const controller = require("./controller.js") // contain functions
+const multer = require('multer');
 const bodyParser = require('body-parser')
 const app = express()
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -7,6 +8,24 @@ app.use(bodyParser.json());
 
 const session = require('express-session')
 const port = 3001
+
+const Storage = multer.diskStorage({
+     destination: function(req, file, callback) {
+         callback(null, "./Images");
+     },
+     filename: function(req, file, callback) {
+         callback(null, file.fieldname + "_" + req.body.lat + "_" + req.body.lon + '.jpg');
+     }
+});
+
+var locImage = multer({
+     storage: Storage
+}).array("locImage", 1);
+
+var insImage = multer({
+	storage:Storage
+}).array("insImage",1);
+
 
 app.use(session({
 	secret  : '2C44-4D44-WppQ786',
@@ -39,7 +58,7 @@ app.post('/admin/login/',function(req,res){
 	controller.adminlogin(req,res) //admin authentication
 });
 
-app.get('/admin/add/',auth ,function(req, res){
+app.post('/admin/add/',auth ,function(req, res){
 	controller.adminadd(req,res); // add data
 });
 

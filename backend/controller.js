@@ -58,6 +58,18 @@ module.exports = {
 	},
 	
 	adminadd : function(req, res){
+		insImage(req, res, function(err) {
+        		if (err) {
+             			return res.end("Something went wrong!");
+         		}
+         		return res.end("File uploaded sucessfully!.");
+    	 	});
+		locImage(req, res, function(err) {
+         		if (err) {
+            			return res.end("Something went wrong!");
+        		}
+        		return res.end("File uploaded sucessfully!.");
+     		});
 		res.send("add data") // return the file that will add the blog
 	},
 
