@@ -119,8 +119,8 @@
 			<div class="container center" style="padding-top:20px; padding-bottom: 30px">
 				<div class="tabs is-centered is-toggle is-small">
 					<ul>		
-						<li class="is-active">
-						<a>
+						<li>
+						<a href="add.html">
 							<span class="icon is-small"><i class="fas fa-plus-circle" aria-hidden="true"></i></span>
 							<span>Add</span>
 						</a>
@@ -131,8 +131,8 @@
 							<span>Edit</span>
 						</a>
 						</li>
-						<li>
-						<a href="delete.html">
+						<li class="is-active">
+						<a>
 							<span class="icon is-small"><i class="fas fa-eraser" aria-hidden="true"></i></span>
 							<span>Delete</span>
 						</a>
@@ -147,291 +147,15 @@
 				</div>
 			</div>
 		</div>
-<form method='get'>
+
         <div class="hero is-dark">
-			<div class="container">
-				<div class="field is-horizontal">
-					<div class="field-label is-normal">
-						<label class="label">Instructor</label>
-					</div>
-					<div class="field-body">
-						<div class="field">
-							<p class="control has-icons-left">
-								<input class="input is-danger" type="text" placeholder="Instructor's Name">
-								<span class="icon is-small is-left">
-									<i class="fas fa-address-book"></i>
-								</span>
-							</p>
-							<p class="help is-danger">*Required</p>
-						</div>
-					</div>
-				</div>
+            <div class="container">
+                <div class="columns is-mobile is-multiline" id="iterate">
+                    
+                </div>
+            </div>
+        </div>
 
-				<div class="field is-horizontal">
-					<div class="field-label is-normal">
-						<label class="label">Phone Number</label>
-					</div>
-						<div class="field-body">
-							<div class="field ">
-								<div class="field has-addons">
-									<p class="control">
-										<a class="button is-static">
-											+91
-										</a>
-									</p>
-									<p class="control">
-										<input class="input" type="tel" placeholder="Phone Number">
-									</p>
-								</div>
-							<p class="help">Do not enter the first zero</p>
-						</div>
-					</div>
-				</div>
-
-				<div class="field is-horizontal">
-					<div class="field-label is-normal">
-						<label class="label">Geo Location</label>
-					</div>
-	
-					<div class="field-body">
-						<div class="field">
-							<p class="control is-expanded has-icons-left">
-								<input name="lat" class="input is-danger" type="text" placeholder="latitude">
-								<span class="icon is-small is-left">
-									<i class="fas fa-map-marker-alt"></i>
-								</span>
-							</p>
-							<p class="help is-danger">*Required</p>
-						</div>
-	
-						<div class="field">
-							<p class="control is-expanded has-icons-left">
-								<input name="lng" class="input is-danger" type="text" placeholder="longitude">
-								<span class="icon is-small is-left">
-									<i class="fas fa-map-marker-alt"></i>
-								</span>
-							</p>
-							<p class="help is-danger">*Required</p>
-						</div>					
-					</div>
-				</div>
-
-				<div class="field is-horizontal">
-					<div class="field-label is-normal">
-						<label class="label">Name</label>
-					</div>
-	
-					<div class="field-body">
-						<div class="field">
-							<p class="control is-expanded has-icons-left">
-								<input name="place" class="input is-danger" type="text" placeholder="Location Name">
-								<span class="icon is-small is-left">
-									<i class="fas fa-info"></i>
-								</span>
-							</p>
-							<p class="help is-danger">*Required</p>
-						</div>
-					</div>
-				</div>
-				<div class="field is-horizontal">
-					<div class="field-label is-normal">
-						<label class="label">Address</label>
-					</div>
-	
-					<div class="field-body">
-						<div class="field">
-							<p class="control is-expanded has-icons-left">
-								<input class="input" type="text" placeholder="Location Address">
-								<span class="icon is-small is-left">
-									<i class="fas fa-address-card"></i>
-								</span>
-							</p>
-						</div>
-					</div>
-				</div>
-
-				<div class="field is-horizontal">
-					<div class="field-label is-normal">
-						<label class="label">Genre</label>
-					</div>
-					<div class="field-body">
-						<div class="field">
-							<p class="control has-icons-left">
-								<input class="input" type="text" placeholder="Genre">
-								<span class="icon is-small is-left">
-									<i class="fas fa-list-ul"></i>
-								</span>
-							</p>
-						</div>
-					</div>
-				</div>
-
-				<div class="field is-horizontal">
-					<div class="field-label is-normal">
-						<label class="label">Links</label>
-					</div>
-					<div class="field-body">
-						<div class="field ">
-							<div class="field has-addons">
-								<p class="control">
-									<a class="button is-static">
-										www.facebook.com/
-									</a>
-								</p>
-								<p class="control has-icons-left">
-									<input class="input" type="text" placeholder="facebook link">
-									<span class="icon is-small is-left">
-										<i class="fab fa-lg fa-facebook-f"></i>
-									</span>
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="field is-horizontal">
-					<div class="field-label is-normal"></div>
-					<div class="field-body">
-						<div class="field ">
-							<div class="field has-addons">
-								<p class="control">
-									<a class="button is-static">
-										www.youtube.com/
-									</a>
-								</p>
-								<p class="control has-icons-left">
-									<input class="input" type="text" placeholder="youtube link">
-									<span class="icon is-small is-left">
-										<i class="fab fa-lg fa-youtube"></i>
-									</span>
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="field is-horizontal">
-					<div class="field-label is-normal"></div>
-				
-					<div class="field-body">
-						<div class="field">
-							<div class="field has-addons">
-								<p class="control">
-									<a class="button is-static">
-										www.twitter.com/
-									</a>
-								</p>
-								<p class="control has-icons-left">
-									<input class="input" type="text" placeholder="twitter link">
-									<span class="icon is-small is-left">
-										<i class="fab fa-lg fa-twitter"></i>
-									</span>
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="field is-horizontal">
-					<div class="field-label is-normal">
-							<label class="label">Type</label>
-					</div>
-					<div class="field">
-						<div class="field-body">
-							<p class="control has-icons-left is-expanded">
-								<span class="select is-danger">
-									<select>
-										<option selected>Music School</option>
-										<option>Live Music Venue</option>
-										<option>Cafe/Restaurent</option>
-										<option>Music Store</option>
-										<option>Recording Studio</option>
-									</select>
-								</span>
-								<span class="icon is-small is-left">
-									<i class="fas fa-warehouse"></i>
-								</span>
-							</p>
-							<p class="help is-danger">*Required</p>
-						</div>
-					</div>
-				</div>
-
-				<div class="field is-horizontal">
-					<div class="field-label is-normal">
-						<label class="label">Description</label>
-					</div>
-					<div class="field-body">
-						<div class="field">
-						<div class="control">
-							<textarea class="textarea" placeholder="Description of the music location"></textarea>
-						</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="field is-horizontal">
-					<div class="field-label is-normal"></div>
-
-					<div class="field-body">
-						<div class="file has-name">
-							<label class="file-label">
-								<input class="file-input" type="file" name="locImage">
-								<span class="file-cta">
-								<span class="file-icon">
-									<i class="fas fa-upload"></i>
-								</span>
-								<span class="file-label">
-									Choose a file…
-								</span>
-								</span>
-								<span class="file-name">
-									Location Image
-								</span>
-							</label>
-						</div>
-					</div>
-				</div>
-
-				<div class="field is-horizontal">
-					<div class="field-label is-normal"></div>
-
-					<div class="field-body">
-						<div class="file has-name">
-							<label class="file-label">
-								<input class="file-input" type="file" name="insImage">
-								<span class="file-cta">
-								<span class="file-icon">
-									<i class="fas fa-upload"></i>
-								</span>
-								<span class="file-label">
-									Choose a file…
-								</span>
-								</span>
-								<span class="file-name">
-									Instructor Image
-								</span>
-							</label>
-						</div>
-					</div>
-				</div>
-				
-				<div class="container" style="padding-top:30px"></div>
-				<div class="field is-horizontal">
-					<div class="field-label">
-					
-					</div>
-					<div class="field-body">
-						<div class="field">
-							<div class="control">
-								<input type="submit" class="button is-black" value="Submit">
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</form>
         <div class="hero is-dark" style="padding-top:20px">
             <div class="container">
                 <p class="title center bd-notification is-primary">ABOUT US</p>
@@ -455,6 +179,10 @@
             </div>
         </div>
 
+        <script  src="markers.js">
+            var locations=data;
+        </script>
+
         <script>
             document.addEventListener('DOMContentLoaded', () => {
                 var $burgers = getAll('.burger');
@@ -469,6 +197,37 @@
                         });
                     });
                 }
+
+                var locations=data;
+                var iterate=document.getElementById("iterate");
+                var str="";
+
+                for(var i=0;i<locations.length;i++) {
+                    
+                    str+="<div class=\"column is-one-third is-primary\">";
+                        str+="<a href=\"delete.html?lat="+locations[i].lat+"&lng="+locations[i].lng+"\" style=\"width:100%; height:100%\">";
+                            str+="<div class=\"card\">";
+                                str+="<div class=\"card-image\">";
+                                    str+="<figure class=\"image is-4by3\">";
+                                        str+="<img src=\"img/"+locations[i].lat+"-"+locations[i].lng+".jpeg\">";
+                                    str+="</figure>";
+                                str+="</div>";
+                                    
+                                str+="<div class=\"card-content\">";
+                                    str+="<p class=\"title is-4\" style=\"color:black; text-align:center\">";
+                                        str+=locations[i].name;
+                                    str+="</p>";
+
+                                    str+="<p class=\"subtitle\" style=\"color:grey; text-align:center\">";
+                                        str+=locations[i].lat+","+locations[i].lng;
+                                    str+="</p>";
+                                str+="</div>";
+                            str+="</div>";
+                        str+="</a>";
+                    str+="</div>";
+                }
+
+                iterate.innerHTML=str;
             });
 
             function getAll(selector) {
